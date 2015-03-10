@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<title>Waitstaff Calculator</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<h1>Waitstaff Calculator</h1>
+	</header>
+	<section class="container details">
+		<h2>Enter the Meal Details</h2>
+		<hr size="2px" color="black" width="100%">
+		<form name="mealDetails">
+			<label>Base Meal Price: $</label>
+			<input type="number" min="0" required><br>
+			<label>Tax Rate: %</label>
+			<input type="number" min="0" max="100" required><br>
+			<label>Tip Percentage: %</label>
+			<input type="number" min="0" max="100" required><br>
+			<input type="submit" value="Submit">
+			<button>Cancel</button>
+		</form>
+	</section>
+	<section class="container charges">
+		<div class="charges-title">
+			<h2>Customer Charges</h2>
+			<hr size="2px" color="black" width="100%">
+		</div>
+		<div class="charges-content">
+			<p>Subtotal: {{subtotal | currency}}</p>
+			<p>Tip: {{tip | currency}}</p>
+			<hr size="2px" color="black" width="100%">
+			<p>Total: {{total | currency}}</p>
+		</div>
+	</section>
+	<section class="earnings"></section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>

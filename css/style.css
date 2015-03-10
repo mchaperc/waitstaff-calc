@@ -16,7 +16,7 @@ header h1 {
 
 .details {
 	position: relative;
-	background-color: rgba(255, 255, 255, .6);
+	background-color: rgba(255, 255, 255, .75);
 	float: left;
 	left: 3em;
 	top: 3em;
@@ -43,6 +43,10 @@ header h1 {
 	text-align: right;
 }
 
+.details input[type="number"] {
+	text-align: right;
+}
+
 .details input[type="submit"], .details button {
 	position: relative;
 	margin-top: 2em;
@@ -53,7 +57,7 @@ header h1 {
 
 .charges {
 	position: relative;
-	background-color: rgba(255, 255, 255, .6);
+	background-color: rgba(255, 255, 255, .75);
 	float: right;
 	right: 4em;
 	margin: 2em 1em 0 2em;
@@ -79,7 +83,7 @@ header h1 {
 
 .earnings {
 	position: relative;
-	background-color: rgba(255, 255, 255, .6);
+	background-color: rgba(255, 255, 255, .75);
 	float: right;
 	clear: both;
 	text-align: right;

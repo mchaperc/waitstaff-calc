@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en" ng-app="app">
 <head>
 	<meta charset="UTF-8">
 	<title>Waitstaff Calculator</title>
@@ -7,22 +7,22 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body ng-controller="CalculatorLogic as logic">
 	<header>
 		<h1>Waitstaff Calculator</h1>
 	</header>
 	<section class="container details">
 		<h2>Enter the Meal Details</h2>
 		<hr size="2px" color="black" width="100%">
-		<form name="mealDetails">
+		<form ng-submit="logic.calc()" name="mealDetails">
 			<label>Base Meal Price: $</label>
-			<input type="number" min="0" required><br>
+			<input ng-model="logic.inputs.base_price" placeholder="0" type="number" min="0" required autofocus><br>
 			<label>Tax Rate: %</label>
-			<input type="number" min="0" max="100" required><br>
+			<input ng-model="logic.inputs.tax_rate" placeholder="0" type="number" min="0" max="100" required><br>
 			<label>Tip Percentage: %</label>
-			<input type="number" min="0" max="100" required><br>
+			<input ng-model="logic.inputs.tip_percent" placeholder="0" type="number" min="0" max="100" required><br>
 			<input type="submit" value="Submit">
-			<button>Cancel</button>
+			<button ng-click="logic.clearForm()">Cancel</button>
 		</form>
 	</section>
 	<section class="container charges">
@@ -31,10 +31,10 @@
 			<hr size="2px" color="black" width="100%">
 		</div>
 		<div class="charges-content">
-			<p>Subtotal: {{subtotal | currency}}</p>
-			<p>Tip: {{tip | currency}}</p>
+			<p>Subtotal: {{logic.subtotal | currency}}</p>
+			<p>Tip: {{logic.current_tip | currency}}</p>
 			<hr size="2px" color="black" width="100%">
-			<p>Total: {{total | currency}}</p>
+			<p>Total: {{logic.total_cost | currency}} (Taxes: {{logic.taxes | currency}})</p>
 		</div>
 	</section>
 	<section class="container earnings">
@@ -43,9 +43,9 @@
 			<hr size="2px" color="black" width="100%">
 		</div>
 		<div>
-			<p>Tip Total: {{total | currency}}</p>
-			<p>Meal Count: {{meal_count}}</p>
-			<p>Average Tip Per Meal: {{avg_tip | currency}}</p>
+			<p>Tip Total: {{logic.tip_total | currency}}</p>
+			<p>Meal Count: {{logic.meal_count}}</p>
+			<p>Average Tip Per Meal: {{logic.avg_tips | currency}}</p>
 		</div>
 	</section>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>

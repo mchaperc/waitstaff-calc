@@ -14,14 +14,14 @@
 	<section class="container details">
 		<h2>Enter the Meal Details</h2>
 		<hr size="2px" color="black" width="100%">
-		<form ng-submit="logic.calc()" name="mealDetails">
+		<form name="mealDetails">
 			<label>Base Meal Price: $</label>
 			<input ng-model="logic.inputs.base_price" placeholder="0" type="number" min="0" required autofocus><br>
 			<label>Tax Rate: %</label>
 			<input ng-model="logic.inputs.tax_rate" placeholder="0" type="number" min="0" max="100" required><br>
 			<label>Tip Percentage: %</label>
 			<input ng-model="logic.inputs.tip_percent" placeholder="0" type="number" min="0" max="100" required><br>
-			<input type="submit" value="Submit">
+			<input type="submit" ng-click="logic.calc()" value="Submit">
 			<button ng-click="logic.clearForm()">Cancel</button>
 		</form>
 	</section>
